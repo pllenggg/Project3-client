@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import LoginForm from './SigninForm';
+import SigninForm from './SigninForm';
 import axios from "axios";
 
 
-const SERVER = "http://localhost:3000"
+const SERVER = "http://localhost:3001"
 
 
 
-class Login extends Component {
+class Signin extends Component {
   constructor() {
       super();
         this.state = {
-            username: "",
+            email: "",
             password: "",
 
         }
@@ -30,16 +30,22 @@ class Login extends Component {
       e.preventDefault();
       const request = {
           "auth": {
-              username: this.state.username,
-              password: this.state.password
+              "email": this.state.email,
+              "password": this.state.password
           }
       } 
       const url = `${SERVER}/api/user_token`
       console.log(request);
       axios.post(url, request).then(response => {
-          console.log(response.data);
-        localStorage.setItem("jwt", response.data.jwt);
-        //   this.props.history.push('/');
+          console.log(response)
+        let token = "Bearer " + response.data.jwt;
+        localStorage.setItem("jwt", token);
+        return axios.get(`http://localhost:3001/api/users/current.json`, {headers: {'Authorization': token}});
+      }).then (results => {
+        localStorage.setItem ("user_id", results.data.id);
+        console.log(localStorage.user_id)
+        localStorage.setItem ("user_name", results.data.name);
+        this.props.history.push("/");
       })
       .catch(err => {
           console.log("error", err);
@@ -49,7 +55,7 @@ class Login extends Component {
     
     return (
       <div>
-          <LoginForm
+          <SigninForm
             onTyping = {this._handleChange}
             onSubmit = {this._handleSubmit}
           />
@@ -59,4 +65,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Signin;

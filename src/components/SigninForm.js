@@ -80,10 +80,11 @@ function Copyright() {
                 margin="normal"
                 required
                 fullWidth
-                id="username"
-                label="Email Address"
-                name="username"
-                autoComplete="username"
+                id="email"
+                label="email"
+                name="email"
+                autoComplete="email"
+                onChange={props.onTyping}
                 autoFocus
               />
               <TextField
@@ -95,6 +96,7 @@ function Copyright() {
                 label="Password"
                 type="password"
                 id="password"
+                onChange={props.onTyping}
                 autoComplete="current-password"
               />
               <FormControlLabel

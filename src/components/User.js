@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const USER_API = 'http://localhost:3000/api/users.json'
+const USER_API = 'http://localhost:3001/api/users.json'
 
 class User extends Component {
   constructor() {
@@ -13,7 +13,7 @@ class User extends Component {
 
   componentDidMount() {
       axios.get(USER_API).then((results) => {
-        //   console.log(results.data);
+          console.log(results.data);
             this.setState({users: results.data})
       })
   }
