@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import Signin from "./components/Signin"
 import Profile from './components/Profile';
 import Users from './components/User';
+import EditProfile from './components/EditProfile'
 
 const Routes = (
     <Router>
@@ -15,6 +16,7 @@ const Routes = (
             <Route exact path ="/Signin" component={Signin}/>
             <Route exact path ="/profile" component={Profile}/>
             <Route exact path ="/users" component={Users}/>
+            <Route exact path ="/edit" component={EditProfile}/>
 
 
 

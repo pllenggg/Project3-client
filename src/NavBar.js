@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
+import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 
 
 class Navigation extends Component {
@@ -8,7 +8,7 @@ class Navigation extends Component {
      <div>
        <Navbar bg="light" expand="lg">
         <Navbar.Brand href="#home">
-          <img src="https://res.cloudinary.com/dluw1enan/image/upload/c_scale,w_30/v1567989092/project3/cat-icon_kpljby.png"/>
+          <img src="https://res.cloudinary.com/dluw1enan/image/upload/c_scale,w_30/v1567989092/project3/cat-icon_kpljby.png" alt="meow logo"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
