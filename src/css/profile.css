@@ -1,0 +1,23 @@
+.row{
+    margin-top: 55px;
+}
+
+.btn {
+    display: inline;
+    margin-left: 10px;
+}
+
+div.gallery{
+    width: 300px;
+    height: 300px;
+    display: inherit;
+}
+
+.col-sm {
+    margin: 20px;
+}
+
+.profile_photo {
+    text-align: right;
+}
+

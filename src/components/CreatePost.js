@@ -50,7 +50,8 @@ class CreatePost extends Component {
   }//handlechange
 
   savePost(post) {
-    const url = 'https://meowserver.herokuapp.com/api/posts.json'
+    // const url = 'https://meowserver.herokuapp.com/api/posts.json'
+    const url = 'http://localhost:3001/api/posts.json'
     let token = "Bearer "+localStorage.getItem('jwt');
     axios({method:"post", url: url, header:{'Authorization': token}, data: post}).then(()=> {
       console.log(post);
