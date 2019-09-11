@@ -3,7 +3,7 @@ import SigninForm from './SigninForm';
 import axios from "axios";
 
 
-const SERVER = "http://localhost:3001"
+const SERVER = "https://meowserver.herokuapp.com"
 
 
 
@@ -40,7 +40,7 @@ class Signin extends Component {
           console.log(response)
         let token = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", token);
-        return axios.get(`http://localhost:3001/api/users/current.json`, {headers: {'Authorization': token}});
+        return axios.get(`${SERVER}/api/users/current.json`, {headers: {'Authorization': token}});
       }).then (results => {
         localStorage.setItem ("user_id", results.data.id);
         console.log(localStorage.user_id)
