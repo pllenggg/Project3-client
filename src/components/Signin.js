@@ -45,7 +45,7 @@ class Signin extends Component {
         localStorage.setItem ("user_id", results.data.id);
         console.log(localStorage.user_id)
         localStorage.setItem ("user_name", results.data.name);
-        this.props.history.push("/");
+        this.props.history.push("/profile");
       })
       .catch(err => {
           console.log("error", err);
