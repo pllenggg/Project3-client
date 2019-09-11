@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
+import { Nav, Navbar} from "react-bootstrap";
 
 
 class Navigation extends Component {
@@ -18,10 +18,10 @@ class Navigation extends Component {
              <Nav.Link href="#"><strong>Meowstagram</strong></Nav.Link>
              <Nav.Link href="#/profile">Profile</Nav.Link>
              <Nav.Link href="#/search">
-               <img src="https://res.cloudinary.com/dluw1enan/image/upload/c_scale,w_30/v1568179422/project3/search_icon_crfdts.png"/>
+               <img src="https://res.cloudinary.com/dluw1enan/image/upload/c_scale,w_30/v1568179422/project3/search_icon_crfdts.png" alt="search-icon"/>
              </Nav.Link>
              <Nav.Link href="#/add">
-             <img src="https://res.cloudinary.com/dluw1enan/image/upload/c_scale,w_30/v1568179420/project3/small_plus_icon_ojgk9c.png"/>
+             <img src="https://res.cloudinary.com/dluw1enan/image/upload/c_scale,w_30/v1568179420/project3/small_plus_icon_ojgk9c.png" alt="add icon"/>
              </Nav.Link>
             </Nav>
         </Navbar.Collapse>

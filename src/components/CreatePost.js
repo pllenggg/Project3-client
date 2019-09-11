@@ -53,19 +53,20 @@ class CreatePost extends Component {
     const url = 'http://localhost:3001/api/posts.json'
     let token = "Bearer "+localStorage.getItem('jwt');
     axios({method:"post", url: url, header:{'Authorization': token}, data: post}).then(()=> {
+      console.log(post);
       this.history.push(-1);
     });
   }//savePost
 
   _handleSubmit(e) {
     e.preventDefault();
+    const { form } = this.state
     const data = {
       caption: form.caption,
       post_image: form.post_image
     }
-    const { form } = this.state
-    this.props.onSubmit(data);
-
+    console.log(data)
+    // this.props.onSubmit(data);
   }//handlesubmit
   render(){
     const { form } = this.state;

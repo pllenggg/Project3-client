@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Navigation from '../NavBar'
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
-import { getThemeProps } from '@material-ui/styles';
+import { Link } from 'react-router-dom'
 
 class Profile extends Component {
   constructor() {
@@ -10,7 +10,13 @@ class Profile extends Component {
     this.state = {
       user: [],
       posts: [],
+      current_item: undefined
     };
+    this._handleClick = this._handleClick.bind(this);
+  }
+  _handleClick(post) {
+    console.log(post.data)
+    this.setState({current_item: post})
   }
 
   componentDidMount() {
@@ -58,7 +64,7 @@ class Profile extends Component {
         <Container>
           <Row>
             <Col style={{display: "inline-block", width:200}}>
-              <Gallery posts={this.state.posts}/>
+              <Gallery posts={this.state.posts} onClick={this._handleClick}/>
             </Col>
           </Row>
         </Container>  
@@ -73,7 +79,7 @@ const Gallery = (props) => {
       {props.posts.map((p) => {
         return(
           <div key={p.id}>
-            <Image src={p.post_image} alt={p.id} width={300} height={300}/>
+            <Link to="/show" onClick={props.onClick} key={p.id}><Image src={p.post_image} alt={p.id}width={300} height={300}/></Link>
           </div>
         )
       })}
