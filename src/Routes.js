@@ -1,7 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route } from "react-router-dom";
 
-import Home from "./components/Home";
 import Signup from './components/Signup';
 import Signin from "./components/Signin"
 import Profile from './components/Profile';
@@ -18,7 +17,6 @@ const Routes = (
             
             <Route exact path ="/" component={Signin}/>
             <Route exact path ="/Signup" component={Signup}/>
-            <Route exact path ="/feed" component={Home}/>
             <Route exact path ="/profile" component={Profile}/>
             <Route exact path ="/signout" component={Signout}/>
             <Route exact path ="/users" component={Users}/>
