@@ -3,6 +3,8 @@ import { Container, Form, Button } from "react-bootstrap";
 import NavBar from '../NavBar';
 import axios from 'axios';
 
+const Login_id = localStorage.user_id;
+
 class CreatePost extends Component {
   constructor() {
     super();
@@ -50,12 +52,13 @@ class CreatePost extends Component {
   }//handlechange
 
   savePost(post) {
+ 
     // const url = 'https://meowserver.herokuapp.com/api/posts.json'
     const url = 'http://localhost:3001/api/posts.json'
     let token = "Bearer "+localStorage.getItem('jwt');
     axios({method:"post", url: url, header:{'Authorization': token}, data: post}).then(()=> {
       console.log(post);
-      this.history.push(-1);
+      this.props.history.push('/profile');
     });
   }//savePost
 
@@ -64,9 +67,11 @@ class CreatePost extends Component {
     const { form } = this.state
     const data = {
       caption: form.caption,
-      post_image: form.post_image
+      post_image: form.post_image,
+      user_id: Login_id
     }
     console.log(data)
+    this.savePost(data);
     // this.props.onSubmit(data);
   }//handlesubmit
   render(){
@@ -75,7 +80,7 @@ class CreatePost extends Component {
       <div>
         <NavBar/>
         <Container>
-          <Form onSubmit= {this.savePost}>
+          <Form onSubmit= {this._handleSubmit}>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Image</Form.Label>
               <Form.Control name="post_image" value={form.post_image} type="text" placeholder="img URL here.." onChange={this._handleChange}/>
