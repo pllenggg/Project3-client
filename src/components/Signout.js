@@ -1,9 +1,16 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom'
+import React, { Component } from 'react';
 
-const Logout = () => {
-  localStorage.removeItem('jwt');
-  return <Redirect to='/' />
+class SignOut extends Component {
+  constructor () {
+    super();
+  }
+
+  render () {
+    localStorage.removeItem('jwt');
+    this.props.history.push("/");
+    window.location.reload();
+    return;
+  }
 }
 
-export default Logout;
+export default SignOut;

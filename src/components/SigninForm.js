@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography, makeStyles, Paper } from "@material-ui/core";
-import purple from "@material-ui/core/colors/purple"
+import grey from "@material-ui/core/colors/grey"
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { createMuiTheme } from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
@@ -8,7 +8,7 @@ import {ThemeProvider} from '@material-ui/styles';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: purple[200],
+      main: grey[900],
     },
     secondary: {
       main: '#0044ff',
@@ -22,7 +22,7 @@ function Copyright() {
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
         <Link color="inherit" href="https://material-ui.com/">
-          www.catstagram.herokuapp.com
+          www.meowstagram.herokuapp.com
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -47,7 +47,7 @@ function Copyright() {
     },
     avatar: {
       margin: theme.spacing(1),
-      backgroundColor: purple[200],
+      backgroundColor: grey[900],
     },
     form: {
       width: '100%', // Fix IE 11 issue.
