@@ -7,9 +7,10 @@ import Signin from "./components/Signin"
 import Profile from './components/Profile';
 import Users from './components/User';
 import EditProfile from './components/EditProfile'
-import ShowPost from './components/ShowPost'
-import Logout from './components/Logout'
+import Signout from './components/Signout'
 import CreatePost from './components/CreatePost';
+import Search from './components/Search';
+import showUser from './components/showUser';
 
 const Routes = (
     <Router>
@@ -19,11 +20,12 @@ const Routes = (
             <Route exact path ="/Signup" component={Signup}/>
             <Route exact path ="/feed" component={Home}/>
             <Route exact path ="/profile" component={Profile}/>
-            <Route exact path ="/logout" component={Logout}/>
+            <Route exact path ="/signout" component={Signout}/>
             <Route exact path ="/users" component={Users}/>
             <Route exact path ="/edit" component={EditProfile}/>
             <Route exact path ="/add" component={CreatePost}/>
-            <Route path ="/show/:id" component= {ShowPost}/>
+            <Route path ="/profile/:id" component= {showUser}/>
+            <Route exact path ="/search" component={Search}/>
         </div>
     </Router>
     
