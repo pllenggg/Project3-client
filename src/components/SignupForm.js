@@ -13,7 +13,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import grey from "@material-ui/core/colors/grey";
-import {ThemeProvider} from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 

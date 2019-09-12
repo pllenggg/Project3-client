@@ -13,7 +13,7 @@ class EditProfile extends Component {
   }
 
   componentDidMount() {
-      const current_user_api = `http://localhost:3001/api/users/${localStorage.user_id}.json`
+      const current_user_api = `https://meowserver.herokuapp.com/${localStorage.user_id}.json`
       let token = "Bearer " + localStorage.getItem("jwt");
       axios({method: 'get', 
               url: current_user_api, 
@@ -45,7 +45,7 @@ class EditProfile extends Component {
       console.log(newProfile)
       //this is because if the user didnt update anything, it will generate the old info
       const token = "Bearer " + localStorage.getItem("jwt");
-      const user_api = `http://localhost:3001/api/users/${localStorage.user_id}.json`
+      const user_api = `https://meowserver.herokuapp.com/${localStorage.user_id}.json`
       axios( {method: 'patch',
              url: user_api, 
              header: {'Authorization': token },
