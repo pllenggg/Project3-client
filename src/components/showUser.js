@@ -64,11 +64,9 @@ class showUser extends Component {
         </Container> 
 
         <Container>
-            <Row>
-            
-              <Gallery posts={this.state.posts} />
-           
-              </Row>
+        <div className='gridContainer'>
+        <Gallery posts={this.state.posts}/>
+        </div>  
         </Container>  
       </div>
     )
@@ -81,10 +79,7 @@ const Gallery = (props) => {
       {props.posts.map((p) => {
         return(
           
-            <Col key={p.id}sm >
-            <Link to="/show" key={p.id}><Image className="postimage" src={p.post_image} alt={p.id} display={'inline-block'} width={300} height={300}/></Link>
-            </Col>
-        
+          <Image className='gridItem' src={p.post_image} alt={p.id} width={300} height={ 300 } rounded />
         )
       })}
     </div>
