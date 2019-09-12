@@ -1,54 +1,49 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Navigation from '../NavBar'
-import { Container, Row, Col, Image, Button } from "react-bootstrap";
-import { Link } from 'react-router-dom'
-import '../css/profile.css'
+import { Container, Row, Col, Image, Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import NavBar from '../NavBar';
 
-class Profile extends Component {
-  constructor() {
-    super();
+class showUser extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      user: [],
-      posts: [],
+        user: [],
+        posts: [],
+        id: this.props.match.params.id
     };
-    this._handleClick = this._handleClick.bind(this);
-  }
-  _handleClick(post) {
-    console.log(post.data)
-    this.setState({current_item: post})
   }
 
   componentDidMount() {
-    // const POSTS_API = "https://meowserver.herokuapp.com/api/posts.json";
-    // const USERS_API = "https://meowserver.herokuapp.com/api/users/:id.json";
     const POSTS_API = "http://localhost:3001/api/posts.json";
     const USERS_API = "http://localhost:3001/api/users/:id.json";
-    
-    const current_user_api = USERS_API.replace(':id', localStorage.user_id);
-    const login_id = (localStorage.user_id);
+    const current_id = this.props.match.params.id;
+    const other_users_api = USERS_API.replace(':id', current_id);
+   
 
     let token = "Bearer " + localStorage.getItem("jwt");
     
-      axios({method: 'get', 
-      url: current_user_api, 
-      headers: {'Authorization': token }})
-      .then(response => { 
-      console.log(response.data)
-      this.setState({user: response.data})
-      })
-      .catch(error => console.log('error', error));
+    axios({method: 'get', 
+    url: other_users_api, 
+    headers: {'Authorization': token }})
+    .then(response => { 
+    console.log(response.data)
+    this.setState({user: response.data})
+    })
+    .catch(error => console.log('error', error));
 
-      axios.get(POSTS_API).then(results => {
-      let data = (results.data.filter((p) => p.user_id === login_id));
-      this.setState({ posts: data })          
-})
+    axios.get(POSTS_API).then(results => {
+    let data = (results.data.filter((p) => p.user_id === current_id));
+        console.log(current_id)
+        console.log(data)
+    this.setState({ posts: data }) 
+    
+    })
   }
-
   render() {
     return(
       <div>
-        <Navigation/>  
+        <NavBar/>  
         <Container>
             <Row>
                 <Col className="profile_photo" xs={6} md={4}>
@@ -69,7 +64,7 @@ class Profile extends Component {
         <Container>
             <Row>
             
-              <Gallery posts={this.state.posts} onClick={this._handleClick}/>
+              <Gallery posts={this.state.posts} />
            
               </Row>
         </Container>  
@@ -85,7 +80,7 @@ const Gallery = (props) => {
         return(
           
             <Col key={p.id}sm >
-            <Link to="/show" onClick={props.onClick} key={p.id}><Image className="postimage" src={p.post_image} alt={p.id} display={'inline-block'} width={300} height={300}/></Link>
+            <Link to="/show" key={p.id}><Image className="postimage" src={p.post_image} alt={p.id} display={'inline-block'} width={300} height={300}/></Link>
             </Col>
         
         )
@@ -94,4 +89,4 @@ const Gallery = (props) => {
   )
 }
 
-export default Profile;
+export default showUser;
