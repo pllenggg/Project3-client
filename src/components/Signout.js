@@ -8,7 +8,7 @@ class SignOut extends Component {
   render () {
     localStorage.removeItem('jwt');
     localStorage.removeItem('user_id');
-    localStorage.setItem ("user_name");
+    localStorage.romoveItem("user_name");
     this.props.history.push("/");
     window.location.reload();
     return;
