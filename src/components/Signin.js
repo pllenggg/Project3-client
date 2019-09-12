@@ -3,8 +3,8 @@ import SigninForm from './SigninForm';
 import axios from "axios";
 
 
-// const SERVER = "https://meowserver.herokuapp.com/"
-const SERVER = "http://localhost:3001/"
+const SERVER = "https://meowserver.herokuapp.com"
+// const SERVER = "http://localhost:3001/"
 
 
 
