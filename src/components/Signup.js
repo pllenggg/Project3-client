@@ -21,8 +21,8 @@ class Signup extends Component {
 
   _handleSubmit(e) {
     e.preventDefault();
-    const SERVER = "http://localhost:3001/"
-    const users_url = 'http://localhost:3001/api/users.json';
+    const SERVER = "https://meowserver.herokuapp.com/"
+    const users_url = 'https://meowserver.herokuapp.com/api/users.json';
     
     axios.post(users_url, {
       user: {

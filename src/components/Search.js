@@ -20,7 +20,7 @@ class Search extends Component {
 
   //get the data from api 
     componentDidMount(){
-    const USERS_API = 'http://localhost:3001/api/users.json'
+    const USERS_API = 'https://meowserver.herokuapp.com/api/users.json'
     const token = "Bearer " + localStorage.getItem('jwt');
     axios({method:'get', url: USERS_API, header: {'Authorization': token} })
     .then((results) => {

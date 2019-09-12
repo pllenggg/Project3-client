@@ -20,10 +20,10 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    // const POSTS_API = "https://meowserver.herokuapp.com/api/posts.json";
-    // const USERS_API = "https://meowserver.herokuapp.com/api/users/:id.json";
-    const POSTS_API = "http://localhost:3001/api/posts.json";
-    const USERS_API = "http://localhost:3001/api/users/:id.json";
+    const POSTS_API = "https://meowserver.herokuapp.com/api/posts.json";
+    const USERS_API = "https://meowserver.herokuapp.com/api/users/:id.json";
+    // const POSTS_API = "http://localhost:3001/api/posts.json";
+    // const USERS_API = "http://localhost:3001/api/users/:id.json";
     
     const current_user_api = USERS_API.replace(':id', localStorage.user_id);
     const login_id = (localStorage.user_id);
