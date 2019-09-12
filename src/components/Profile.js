@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Navigation from '../NavBar'
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
-import { Link } from 'react-router-dom'
 import '../css/profile.css'
 
 class Profile extends Component {
@@ -65,14 +64,11 @@ class Profile extends Component {
                 </Col>
             </Row>
         </Container> 
-
         <Container>
-            <Row>
-            
-              <Gallery posts={this.state.posts} onClick={this._handleClick}/>
-           
-              </Row>
-        </Container>  
+          <div className='gridContainer'>
+        <Gallery posts={this.state.posts} onClick={this._handleClick}/>
+        </div>  
+        </Container>
       </div>
     )
   }
@@ -83,11 +79,7 @@ const Gallery = (props) => {
     <div className="gallery">
       {props.posts.map((p) => {
         return(
-          
-            <Col key={p.id}sm >
-            <Link to="/show" onClick={props.onClick} key={p.id}><Image className="postimage" src={p.post_image} alt={p.id} display={'inline-block'} width={300} height={300}/></Link>
-            </Col>
-        
+                <Image className='gridItem' src={p.post_image} alt={p.id} width={300} height={ 300 } rounded />
         )
       })}
     </div>
