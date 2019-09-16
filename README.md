@@ -1,6 +1,6 @@
-Project2: Beuak
+Project3 : Meowstagram
 ===============
-Live Demo Link: https://beauk.herokuapp.com/
+Live Demo Link: https://meowstagram.herokuapp.com/
 -------------
 
 ABOUT
